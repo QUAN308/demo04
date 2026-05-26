@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NTPC Data</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 24px; }
+      .record { margin-bottom: 16px; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
+      .idx { font-weight: bold; }
+      .kv { margin-left: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>NTPC Data — first {{ records|length }} records</h1>
+    {% for record in records %}
+      <div class="record">
+        <div class="idx">{{ loop.index }}.</div>
+        <div class="kv">
+          {% for k, v in record.items() %}
+            <div><strong>{{ k }}</strong>: {{ v }}</div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </body>
+</html>
